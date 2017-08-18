@@ -21,6 +21,7 @@
             $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
             //$this->form_validation->set_rules('pin', 'pin', 'required');
             
+            
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('templates/header');
                 $this->load->view('Users/register', $data);
@@ -97,13 +98,3 @@
        
         
     }
-
-
-
-
-
-
-
-
-
-?>

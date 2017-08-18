@@ -7,18 +7,16 @@
         <link rel="stylesheet" href="<?= base_url();?>assets/css/animate.css" type="text/css">
         <link rel="stylesheet" href="<?= base_url();?>assets/css/font-awesome.min.css" type="text/css" />
         <link rel="stylesheet" href="<?= base_url();?>assets/css/styles.css" type="text/css" >
+        <script type="text/javascript" src="<?= base_url();?>assets/js/Chart.min.js"></script>
+        <script type="text/javascript" src="<?= base_url();?>assets/js/custom.js"></script>
+        
         
         <!-- CDN -->
-        
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-        
+        <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>-->
         <!--<link rel="stylesheet" href="https://bootswatch.com/lumen/bootstrap.min.css" type="text/css" />-->
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" type="text/css" />-->
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />-->
-        
-        
-        
-        
         
         
         <style type="text/css">
@@ -28,17 +26,11 @@
             background-image: url('/assets/images/cherryBG.png');
             background-repeat: no-repeat;
             background-size: cover;
-            padding:80px 0 80px 0;
+            padding:0px 0px 80px 0px;
           }
-          
-          /*.cherry*/
-          /*{*/
-          /*  background-image: url('/assets/images/cherry.png');*/
-          /*  background-repeat: no-repeat;*/
-            
-          /*}*/
-          
+        
         </style>
+        
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -46,7 +38,7 @@
         
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top" style="opacity:0.9;">
+        <nav class="navbar navbar-default " style="opacity:0.9;">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -93,4 +85,3 @@
     </div>
   </div>
 </nav>
-   

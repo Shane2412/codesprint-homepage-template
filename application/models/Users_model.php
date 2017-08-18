@@ -16,7 +16,9 @@
                     'lname' => $this->input->post('lname'),
                     'uname' => $this->input->post('uname'),
                     'password' => $this->input->post('password')
+                    
                     );
+                  $this->db->set('date_added','NOW()', FALSE);
 			     return $this->db->insert('users', $data);
                 }
         

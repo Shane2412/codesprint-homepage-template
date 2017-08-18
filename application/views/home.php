@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html>
 
-<div class="container">
-    <div class="panel panel-primary" style="padding:10px 20px 50px 20px; opacity:0.9;">
+<!--<div class="container">-->
+    <div class="jumbotron" style="padding:10px 20px 50px 20px; background-color:white;">
         
-        <h1 class="animated"> Welcome to: <div class="fp"> Farmer's Paradise </div> </h1> 
+        <div="container">
+          
+          <h3> Welcome To: </h3>
+          
+          <h1> <div class="fp"> Farmer's Paradise </div> </h1>
+          
+        <!--<h1 class="animated"> Welcome to: <div class="fp"> Farmer's Paradise </div> </h1> -->
         
-        <h4>
-        Where demand(s) meets expectation effectively and efficiently.
-        </h4>
+        <div class="jumbotron" style="background-color:rgb(167,14,51); padding:20px;">
+          <div class="container">
+        <blockquote style="color:white; font-size:24px;"> Where demand(s) meets expectation effectively and efficiently.</blockquote>
+          </div>
+        </div>
+        
+        
+        </div>
         
     </div>
-    </div>
+    <!--</div>-->
     
-    <div class="container">
+    <!--<div class="container">-->
     
     
-    <div class="panel panel-default animated pulse" style="padding:15px 50px 50px 50px; opacity:0.9;">
+    <div class="jumbotron animated pulse" style="padding:15px 50px 50px 50px; background-color:white;">
         
         <fieldset>
     
@@ -54,11 +65,12 @@
             
     </div>
     
+    
   
     </fieldset>
     
     </div>
-    
+    <div class="container">
     <div class="row" style="opacity:0.9;">
   <div class="col-sm-6 col-md-4 col-lg-4 animated fadeInLeft">
     <div class="thumbnail">
@@ -77,14 +89,14 @@
       <div class="caption">
         <h3>Helpful Infographic</h3>
         <p>Live & accurate generation of infographics based on critical data from transactions. </p>
-        <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+        <p><a href="welcome/stats" class="btn btn-custom" role="button">Stats</a></p>
       </div>
     </div>
   </div>
   
   <div class="col-sm-6 col-md-4 col-lg-4 animated fadeInRight">
     <div class="thumbnail">
-      <img src="assets/images/game.png" alt="">
+      <img class="img-rounded" src="assets/images/game.png" alt="">
       <div class="caption">
         <h3>Effective Matching</h3>
         <p>Matches Buyers & Sellers according to the demand of a certain agricultural product. </p>
@@ -94,7 +106,7 @@
   </div>
   
 </div>
-
+</div>
 
     
 </div>

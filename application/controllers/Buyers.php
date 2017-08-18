@@ -10,7 +10,7 @@
         
         public function index()
         {
-            $buyer_data['buyers'] = $this->buyer_model->get();
+            $buyer_data['buyers'] = $this->Buyers_model->getCrops();
             $this->load->view('templates/header');
             $this->load->view('Buyers/index', $buyer_data);
             $this->load->view('templates/footer');
@@ -83,21 +83,24 @@
         
         public function post() 
         {
-            $data['types'] = $this->Buyers_model->getCrops();
             if($this->form_validation->run() === FALSE){
-                $this->load->view('templates/header');
-                $this->load->view('Buyers/post', $data);
-                $this->load->view('templates/footer');
+                    $this->load->view('templates/header');
+                    $this->load->view('Buyers/create');
+                    $this->load->view('templates/footer');
             }
-            else
-             {
-                if($this->Buyers_model->create_crop())
-                {
-                    redirect('Buyers/');
-              }
-             }
-            
+            else {
+            $data = array(
+            //order_quantity, crop_type, start_date_of_order, end_date_of_order
+            'crop_type' => $this->input->post('crop_type'),
+            'order_quantity' => $this->input->post('order_quantity'),
+            'start_date_of_order' => date('Y-m-d', strtotime($this->input->post('start_date_of_order'))),
+            'end_date_of_order' => date('Y-m-d', strtotime($this->input->post('end_date_of_order')))
+            );
+            if($this->Buyers_model->create_demand($data)){
+                redirect('/');
+            }
         }
+    }
         
         public function edit_crops($oid)
         {

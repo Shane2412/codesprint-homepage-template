@@ -6,13 +6,7 @@ class Buyers_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        // $this->load->database();
-    }
-    
-    public function getInventory()
-    {
-        // $query = $this->db->get();
-        // return $query->row();
+         $this->load->database();
     }
     
     public function getCrops()
@@ -21,33 +15,12 @@ class Buyers_model extends CI_Model
         return $query->result();
     }
     
-    public function create_crop()
-    {
-       $data = array(
-                    'crop_type' => $this->input->post('crop_type'),
-                    'order_quantity' => $this->input->post('order_quantity'),
-                    'start_date_of_order' => date('m-d-Y H:i:s',strtotime($this->input->post('start_date_of_order'))),
-                    'end_date_of_order' => date('m-d-Y H:i:s',strtotime($this->input->post('end_date_of_order')))
-                    );
-                    
-                    $this->db->insert('order1', $data);
-                    return 'success';
-    }
+   
+    public function create_demand($data){
+                $this->db->insert('order1', $data);
+                return $this->db->insert_id();
+            }
     
-    public function deleteInventory()
-    {
-        
-    }
-    
-    public function updateInventory()
-    {
-        
-    }
-    
-    public function editInventory()
-    {
-        
-    }
     
     public function register($status){
             

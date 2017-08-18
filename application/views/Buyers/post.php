@@ -24,29 +24,29 @@
             
             <!--</select>-->
             
-            <br>
+            <!--<br>-->
             
-            <div class="row">
-            <div class="col-lg-3">
-            <h4> Quantity: </h4>
-            <input class="form-control" type="number" name="order_quantity" placeholder="Quantity"/>
-            </div>
-            &nbsp&nbsp&nbsp
-            <div class="col-lg-3">
-            <h4> Unit: </h4>
-            <select class="form-control" type="number" min="0" name="order_units" placeholder="Units">
-              <option> Unit </option>
-              <option> Lb </option>
-              <option> Kg </option>
-              <option> Ton </option>
-              <option> Oz </option>
+            <!--<div class="row">-->
+            <!--<div class="col-lg-3">-->
+            <!--<h4> Quantity: </h4>-->
+            <!--<input class="form-control" type="number" name="order_quantity" placeholder="Quantity"/>-->
+            <!--</div>-->
+            <!--&nbsp&nbsp&nbsp-->
+            <!--<div class="col-lg-3">-->
+            <!--<h4> Unit: </h4>-->
+            <!--<select class="form-control" type="number" min="0" name="order_units" placeholder="Units">-->
+            <!--  <option> Unit </option>-->
+            <!--  <option> Lb </option>-->
+            <!--  <option> Kg </option>-->
+            <!--  <option> Ton </option>-->
+            <!--  <option> Oz </option>-->
               
               
               
             
             
-            </select>
-            </div>
+            <!--</select>-->
+            <!--</div>-->
             </div>
             
             <br>

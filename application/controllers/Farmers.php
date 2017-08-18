@@ -64,4 +64,39 @@
                 
             }
         }
+        
+        public function create_crop()
+        {
+            if($this->form_validation->run() === FALSE)
+            {
+                $this->load->view('templates/header');
+                $this->load->view('Farmers/create');
+                $this->load->view('templates/footer');
+            }
+            else 
+            {
+                // name, price, crop_max_count, produce_date, estimate_date, quantity = database 
+                
+                if($this->Sellers_model->create_crop())
+                    {
+                        redirect('/');
+                    }
+            }
+            
+        }
+        
+        public function delete_crop()
+        {
+            
+        }
+        
+        public function edit_crop()
+        {
+            
+        }
+        
+        public function show_crop()
+        {
+            
+        }
     }
