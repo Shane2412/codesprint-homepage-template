@@ -10,9 +10,9 @@
         
         public function index()
         {
-            $buyer_data['buyers'] = $this->Buyers_model->getCrops();
+            $buyer_data['buyers'] = $this->Buyers_model->get_Demand();
             $this->load->view('templates/header');
-            $this->load->view('Buyers/index', $buyer_data);
+            $this->load->view('Inventory/buyers', $buyer_data);
             $this->load->view('templates/footer');
         }
         
@@ -48,9 +48,11 @@
         
         public function login()
         {
+            $this->output->enable_profiler(TRUE);
+            
             $this->form_validation->set_rules('uname', 'uname', 'required');
             $this->form_validation->set_rules('password', 'password', 'required');
-            
+            $this->benchmark->mark('code_start');
             if($this->form_validation->run() === FALSE)
             {
                 $this->load->view('templates/header');
@@ -79,28 +81,39 @@
             
                 
             }
+             $this->benchmark->mark('code_end');
+              echo $this->benchmark->elapsed_time('code_start', 'code_end');
         }
         
         public function post() 
         {
-            if($this->form_validation->run() === FALSE){
+            $this->output->enable_profiler(TRUE);  //Use the debug the code
+            $data['crops'] = $this->Buyers_model->getCrops();
+            
+            
+            if(!isset($_POST['submit'])){
                     $this->load->view('templates/header');
-                    $this->load->view('Buyers/create');
+                    $this->load->view('Buyers/create', $data);
                     $this->load->view('templates/footer');
             }
-            else {
-            $data = array(
-            //order_quantity, crop_type, start_date_of_order, end_date_of_order
-            'crop_type' => $this->input->post('crop_type'),
-            'order_quantity' => $this->input->post('order_quantity'),
-            'start_date_of_order' => date('Y-m-d', strtotime($this->input->post('start_date_of_order'))),
-            'end_date_of_order' => date('Y-m-d', strtotime($this->input->post('end_date_of_order')))
-            );
-            if($this->Buyers_model->create_demand($data)){
-                redirect('/');
+            else 
+                {
+                    $data = array(
+                    //order_quantity, crop_type, start_date_of_order, end_date_of_order
+                        'crop_type' => $this->input->post('crop_type'),
+                        'order_quantity' => $this->input->post('order_quantity'),
+                        'start_date_of_order' => date('Y-m-d', strtotime($this->input->post('start_date_of_order'))),
+                        'end_date_of_order' => date('Y-m-d', strtotime($this->input->post('end_date_of_order')))
+                        );
+                    $this->Buyers_model->create_demand($data);
+                    redirect('/');
+                }
             }
-        }
-    }
+                
+                
+            
+    
+    
         
         public function edit_crops($oid)
         {
@@ -109,42 +122,5 @@
                 $data['order'] = $this->Order_model->get_Data();
             }
         }
-    
-    
-    //  public function create()
-    //     {
-    //         if($this->form_validation->run() === FALSE)
-    //         {
-    //             $this->load->view('templates/header');
-    //             $this->load->view('Buyers/create');
-    //             $this->load->view('templates/footer');
-    //         }
-    //         else 
-    //         {
-    //             $create_demand = array(
-    //                 'crop_type'=>$this->input->post('crop_type'),
-    //                 'order_quantity'=>$this->input->post('order_quantity'),
-    //                 'start_date_of_order' =>$this->input->post('start_date_of_order'),
-    //                 'end_date_of_order'=>$this->input->post('end_date_of_order')
-    //                 );
-                    
-    //             if($this->buyer_model->create_demand($create_demand))
-    //             {
-    //                 //$this->session->set_flashdata('list_created', 'Your task list has been created');
-    //                 redirect('Buyers/index');
-    //             }
-    //         }
-    //     }
-    
-    public function create()
-    {
-        
-        $this->load->view('templates/header');
-        $this->load->view('Buyers/create');
-        $this->load->view('templates/footer');
-        
-        
-        
-    }
     
 }

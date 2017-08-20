@@ -1,44 +1,38 @@
-
-
-<?php echo validation_errors(); ?>
-
-<?php echo form_open('Buyers/create'); ?>
-<div class="container">
-      <div class="col-lg-2">
-      <input class="form-control" type="text" name="status" placeholder="Post a demand" style="width:200px;">
-      </div>
-      
-      <div class="col-lg-1">
-      <input class="btn btn-default form-control" type="submit" name="submit" value="Post">
-      </div>
-
-</form>
-
-</div>
-
-<br>
-
 <div class="container-fluid">
-      
+     
       <h1 class="animated bounceInDown" style="color:white;"> Current Demands </h1> <br><br>
       
             
             
              <div class="col-lg-6 col-md-4 col-sm-3"> 
-                  
+                   <?php foreach($buyers as $buyer):?>
                   <div class="panel panel-custom animated bounceIn" style="padding:20px; border-radius:20px; opacity:0.9;">
-                    <div class="panel-heading" style="border-radius:15px;"> <h1 style="color:white; text-align:center;" >Dry Coconuts </h1>  </div>
+                        
+                    <div class="panel-heading" style="border-radius:15px;"> <h1 style="color:white; text-align:center;" ><?= $buyer->crop_type;?></h1>  </div>
                         <hr class="my-4">
                   
                   <div class="panel-body">
                   <div class="jumbotron">
-                        <p class="lead"><strong>I need 10 lb of Coconuts within 4 weeks</strong> </p>  <br>
+                        <?php
+                        $startTimeStamp = strtotime($buyer->start_date_of_order);
+                        $endTimeStamp = strtotime($buyer->end_date_of_order);
+                        
+                        $timeDiff = abs($endTimeStamp - $startTimeStamp);
+                        
+                        $numberDays = $timeDiff/86400;  // 86400 seconds in one day
+                        
+                        // and you might want to convert to integer
+                        $numberDays = intval($numberDays);
+                        ?>
+                        <p class="lead"><strong>I need <?= $buyer->order_quantity;?> lb of <?= $buyer->crop_type;?> within <?= $numberDays?> Days</strong> </p>  <br>
                   </div>
                   
                   <a href="<?= base_url()?>welcome/viewpost" class="btn btn-info" value="viewmore">View More </a>
+                  <input type="submit" name="bid" onclick="confirm('Bid This <?= $buyer->crop_type?>?');" value="Bid" class="btn btn-success"/>
                   <hr class="my-4">
                         </div>
                   </div>
+                  <?php endforeach; ?>
             </div>
             
             

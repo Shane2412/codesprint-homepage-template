@@ -11,17 +11,20 @@
        <h1 class="animated bounceInDown" style="color:white; text-align:center;"> Create New Post  <h1>
      </div>
      
-     <div class="panel-body">
-     <h4> Title: </h4>
-     <input class="form-control" type="text" name="crop_type" placeholder="Give your post a Title">
-     <br>
-     
-     <!--<h4> Crop Type: </h4>-->
-     <!--<select class="form-control" type="text" name="crop_type" placeholder="Crop Type">-->
-     <!--   <option> Fruit </option>-->
-     <!--   <option> Vegetable </option>-->
-     <!--</select>-->
+     <!--<div class="panel-body">-->
+     <!--<h4> Title: </h4>-->
+     <!--<input class="form-control" type="text" name="crop_type" placeholder="Give your post a Title">-->
      <!--<br>-->
+     
+     <h4> Crop Type: </h4>
+     
+     <select class="form-control" type="text" name="crop_type" placeholder="Crop Type">
+         <?php foreach($crops as $crop):?>
+        <option> <?= $crop->name;?></option>
+      <?php endforeach; ?>  
+     </select>
+     
+     <br>
  
      <div class="row">
      

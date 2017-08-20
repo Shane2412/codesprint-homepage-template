@@ -15,12 +15,19 @@ class Buyers_model extends CI_Model
         return $query->result();
     }
     
-   
-    public function create_demand($data){
-                $this->db->insert('order1', $data);
-                return $this->db->insert_id();
-            }
+    public function create_demand($data)
+    {
     
+      $query = $this->db->insert('order', $data); 
+      $insert = $this->db->insert_id();
+      return $insert;
+    }
+    
+    public function get_Demand()
+    {
+        $query = $this->db->get('order');
+        return $query->result();
+    }
     
     public function register($status){
             
