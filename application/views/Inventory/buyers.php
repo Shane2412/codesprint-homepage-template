@@ -8,9 +8,9 @@
                    <?php foreach($buyers as $buyer):?>
                   <div class="panel panel-custom animated bounceIn" style="padding:20px; border-radius:20px; opacity:0.9;">
                         
-                    <div class="panel-heading" style="border-radius:15px;"> <h1 style="color:white; text-align:center;" ><?= $buyer->crop_type;?></h1>  </div>
+                    <div class="panel-heading" style="border-radius:15px;"> <h1 style="color:white; text-align:center;" ><?= $buyer->crop_type;?></h1></div>
                         <hr class="my-4">
-                  
+                  <h5>By Nick</h5>
                   <div class="panel-body">
                   <div class="jumbotron">
                         <?php
@@ -27,12 +27,13 @@
                         <p class="lead"><strong>I need <?= $buyer->order_quantity;?> lb of <?= $buyer->crop_type;?> within <?= $numberDays?> Days</strong> </p>  <br>
                   </div>
                   
-                  <a href="<?= base_url()?>welcome/viewpost" class="btn btn-info" value="viewmore">View More </a>
+                  <a href="<?= base_url()?>welcome/viewpost/<?= $buyer->oid?>" class="btn btn-info" value="viewmore">View More </a>
                   <input type="submit" name="bid" onclick="confirm('Bid This <?= $buyer->crop_type?>?');" value="Bid" class="btn btn-success"/>
                   <hr class="my-4">
                         </div>
                   </div>
                   <?php endforeach; ?>
+                  
             </div>
             
             

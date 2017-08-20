@@ -10,10 +10,14 @@
         
         public function index()
         {
+
+
             $buyer_data['buyers'] = $this->Buyers_model->get_Demand();
+            
             $this->load->view('templates/header');
             $this->load->view('Inventory/buyers', $buyer_data);
             $this->load->view('templates/footer');
+            
         }
         
         
@@ -115,12 +119,40 @@
     
     
         
-        public function edit_crops($oid)
+        public function edit_Demands($oid)
         {
-            if($this->form_validation->run() === FALSE)
-            {
-                $data['order'] = $this->Order_model->get_Data();
+            $data['demands'] = $this->Buyers_model->view_Demand($oid);
+            $data['crops'] = $this->Buyers_model->getCrops();
+            $this->load->view('templates/header');
+            $this->load->view('Buyers/edit', $data);
+            $this->load->view('templates/footer');
+        }
+        
+        public function update_Demands()
+        {
+            if(!isset($_POST['update'])){
+                    $this->load->view('templates/header');
+                    $this->load->view('Buyers/edit', $data);
+                    $this->load->view('templates/footer');
             }
+            else 
+                {
+                    $data = array(
+                    //order_quantity, crop_type, start_date_of_order, end_date_of_order
+                        'crop_type' => $this->input->post('crop_type'),
+                        'order_quantity' => $this->input->post('order_quantity'),
+                        'start_date_of_order' => date('Y-m-d', strtotime($this->input->post('start_date_of_order'))),
+                        'end_date_of_order' => date('Y-m-d', strtotime($this->input->post('end_date_of_order')))
+                        );
+                    $this->Buyers_model->update_Demand($data);
+                    redirect('Buyers/');
+                }
+        }
+        
+        public function delete($oid)
+        {
+            $data['delete_demands'] = $this->Buyers_model->delete_Demand($oid);
+            redirect('Buyers/');
         }
     
 }

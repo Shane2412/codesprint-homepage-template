@@ -38,10 +38,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function viewpost()
+	public function viewpost($oid)
 	{
+		$data['views'] = $this->Buyers_model->view_Demand($oid);
 		$this->load->view('templates/header');
-		$this->load->view('Inventory/viewpost');
+		$this->load->view('Inventory/viewpost', $data);
 		$this->load->view('templates/footer');
 	}
 	

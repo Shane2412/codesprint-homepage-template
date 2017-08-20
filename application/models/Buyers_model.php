@@ -29,6 +29,28 @@ class Buyers_model extends CI_Model
         return $query->result();
     }
     
+    public function view_Demand($oid = FALSE) 
+    {
+                    if($oid === FALSE){
+                        $query = $this->db->get('order');
+                        return $query->result_array();
+                    }
+                    $query = $this->db->get_where('order', array('oid' => $oid));
+                    return $query->row_array();
+    }
+    public function update_Demand($data)
+    {
+        $this->db->where('oid', $this->input->post('oid'));
+        return $this->db->update('order', $data);
+       
+    }
+    
+    public function delete_Demand($oid)
+    {
+        $this->db->where('oid', $oid);
+        $this->db->delete('order');
+    }
+    
     public function register($status){
             
             $data = array(
