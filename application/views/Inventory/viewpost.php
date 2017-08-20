@@ -24,8 +24,10 @@
                   </div>
                   
                   <button class="btn btn-info" type="submit" value="bid" onclick="confirm('Confirm To Bid');">Bid</button>
+                 
                   <a href="<?= site_url('Buyers/edit_Demands/'.$views['oid']);?>"class="btn btn-primary" type="submit" value="Edit" name="edit">Edit</a>
                   <?= form_open('Buyers/delete/'.$views['oid']); ?>
+                  <br>
                   <button class="btn btn-danger" type="submit" value="delete" onclick="confirm('Are you sure you want to delete <?= $views['crop_type']; ?>');">Delete</button>
                   </form>
                   <hr class="my-4">

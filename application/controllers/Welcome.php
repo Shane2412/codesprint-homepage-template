@@ -65,7 +65,7 @@ class Welcome extends CI_Controller {
 	public function test()
 	{
 		$this->load->view('templates/header');
-		$this->load->view('home_old');
+		$this->load->view('testing_purposes/test1');
 		$this->load->view('templates/footer');
 	}
 	

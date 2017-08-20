@@ -114,11 +114,6 @@
                 }
             }
                 
-                
-            
-    
-    
-        
         public function edit_Demands($oid)
         {
             $data['demands'] = $this->Buyers_model->view_Demand($oid);

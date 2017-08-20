@@ -7,7 +7,16 @@
             parent::__construct();
         }
         
-         public function register($status){
+         public function get()
+         {
+             $query = $this->db->get('crop');
+             return $query->result();
+         }
+        
+        
+        
+         public function register($status)
+         {
             
             $data = array(
                     'fname' => $this->input->post('fname'),
@@ -21,9 +30,11 @@
                     
                     // Insert user
 			        return $this->db->insert('users', $data);
-                }
+        }
         
-         public function login($status, $uname, $password){
+        
+         public function login($status, $uname, $password)
+         {
 			// Validate
               $query = $this->db->get_where('users', [
                 'status' => $status,
@@ -33,4 +44,37 @@
            
               return $query->result();
         }
+        
+        public function create_crop($data)
+        {
+            $this->db->insert('crop', $data);
+            return $this->db->insert_id();
+        }
+        
+        public function view_crop($cid = FALSE)
+        {
+                if($cid === FALSE)
+                {
+                    $query = $this->db->get('crop');
+                    return $query->result();
+                }
+                $query = $this->db->get_where('crop', array('cid' => $cid));
+                return $query->row_array();
+        }
+        
+        public function update_crop($data)
+        {
+        $this->db->where('cid', $this->input->post('cid'));
+        return $this->db->update('crop', $data);
+        }
+        
+        
+        public function delete_crop($cid)
+        {
+            $this->db->where('cid', $cid);
+            $this->db->delete('crop');
+        }
+        
+        
+        
     }
