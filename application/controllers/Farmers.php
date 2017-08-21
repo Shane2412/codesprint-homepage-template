@@ -5,10 +5,15 @@
         function __construct()
         {
             parent::__construct();
+           
         }
         
         public function index()
         {
+            if(!$this->session->userdata('logged_in'))
+            {
+                redirect('/');
+            }
             $data['farmers'] = $this->Sellers_model->get();
             $this->load->view('templates/header');
             $this->load->view('Farmers/index', $data);
@@ -75,6 +80,10 @@
         
         public function create()
         {
+            if(!$this->session->userdata('logged_in'))
+            {
+                redirect('/');
+            }
             if(!isset($_POST['submit']))
             {
                 $this->load->view('templates/header');
@@ -104,12 +113,20 @@
         
         public function delete_crop($cid)
         {
+            if(!$this->session->userdata('logged_in'))
+            {
+                redirect('/');
+            }
             $data['delete_crops'] = $this->Sellers_model->delete_crop($cid);
             redirect('Farmers/');
         }
         
         public function edit_crop($cid)
         {
+             if(!$this->session->userdata('logged_in'))
+            {
+                redirect('/');
+            }
             $data['demands'] = $this->Sellers_model->view_crop($cid);
             $this->load->view('templates/header');
             $this->load->view('Farmers/edit', $data);
@@ -118,6 +135,10 @@
         
         public function update_crop()
         {
+             if(!$this->session->userdata('logged_in'))
+            {
+                redirect('/');
+            }
              if(!isset($_POST['update'])){
                     $this->load->view('templates/header');
                     $this->load->view('Farmers/edit', $data);
@@ -142,6 +163,10 @@
         
         public function view($cid)
         {
+             if(!$this->session->userdata('logged_in'))
+            {
+                redirect('/');
+            }
             $data['views'] = $this->Sellers_model->view_crop($cid);
             $this->load->view('templates/header');
             $this->load->view('Farmers/view', $data);

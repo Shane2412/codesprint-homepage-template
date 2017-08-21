@@ -23,7 +23,7 @@
                         <p class="lead"><strong>I need <?=$views['order_quantity']; ?> lb of <?= $views['crop_type'];?> within <?= $numberDays;?> days</strong></p>  <br>
                   </div>
                   
-                  <button class="btn btn-info" type="submit" value="bid" onclick="confirm('Confirm To Bid');">Bid</button>
+                  <button class="btn btn-info" type="submit" value="bid" data-toggle="modal" data-target="#bid">Bid</button>
                  
                   <a href="<?= site_url('Buyers/edit_Demands/'.$views['oid']);?>"class="btn btn-primary" type="submit" value="Edit" name="edit">Edit</a>
                   <?= form_open('Buyers/delete/'.$views['oid']); ?>
@@ -51,3 +51,52 @@
             </div>
             
     </div>
+    
+    
+    
+    
+                      <!-- Modal for Bid -->
+<div class="modal fade" id="bid" tabindex="-1" role="dialog" aria-labelledby="bid" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bid</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" data-dismiss="modal">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          
+          <div class="container">
+              
+              <div class="container">
+              <h3>  Requirements: </h3>
+              Crop: <?= $buyer->crop_type;?> <br>
+              Amount: <?= $buyer->order_quantity;?> lbs <br>
+              Time: <?= $numberDays?> Days
+              </div>
+             
+        <br><br>
+        <form>
+            <div class="col-lg-4">
+            <div class="form-group">
+                <h4> How much units of <?= $buyer->crop_type;?> can you fulfill? </h4>
+                <input class="form-control" type="number" name=""/>
+            </div>
+            </div>
+            
+            
+        </form>
+        
+        </div>
+          
+        </div>
+      <div class="modal-footer">
+          
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-custom" type="submit">Complete Bid</button>
+       
+      </div>
+    </div>
+  </div>
+</div>

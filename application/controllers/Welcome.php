@@ -33,14 +33,18 @@ class Welcome extends CI_Controller {
 	}
 	public function buyers()
 	{
+		$data['buyers'] = $this->Buyers_model->get_Demand();
 		$this->load->view('templates/header');
-		$this->load->view('Inventory/buyers');
+		$this->load->view('Inventory/buyers', $data);
 		$this->load->view('templates/footer');
 	}
 
 	public function viewpost($oid)
 	{
 		$data['views'] = $this->Buyers_model->view_Demand($oid);
+		$data['buyers'] = $this->Buyers_model->get_Demand();
+		
+		
 		$this->load->view('templates/header');
 		$this->load->view('Inventory/viewpost', $data);
 		$this->load->view('templates/footer');
@@ -55,19 +59,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	
-	public function stats()
-	{
-		$this->load->view('templates/header');
-		$this->load->view('statistics/stats');
-		$this->load->view('templates/footer');
-	}
+
 	
-	public function test()
-	{
-		$this->load->view('templates/header');
-		$this->load->view('testing_purposes/test1');
-		$this->load->view('templates/footer');
-	}
-	
+
 	
 }

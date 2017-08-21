@@ -2,7 +2,7 @@
 <html>
   <div class="container">
     <!--<div class="jumbotron" style="background-color:rgba(167,14,51,0.2);">-->
-      <div class="jumbotron" style="background-color:white; opacity:0.9;">
+      <div class="jumbotron" style="background-color:white;">
       
       <h3 style> Welcome To: </h3>
       <h1 style="color:rgba(167,14,51,0.7)"> Farmer's Paradise </h1>
@@ -68,7 +68,7 @@
       <div class="caption">
         <h3>Helpful Infographic</h3>
         <p>Live & accurate generation of infographics based on critical data from transactions. </p>
-        <p><a href="welcome/stats" class="btn btn-custom" role="button">Statistics</a></p>
+        <p><a href="stats" class="btn btn-custom" role="button">Statistics</a></p>
       </div>
     </div>
   </div>

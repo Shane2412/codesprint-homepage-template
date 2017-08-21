@@ -71,8 +71,8 @@
                 label: 'Number of Farmers & Buyers Registered',
                 data:
                 [
-                    76,
-                    60
+                    <?php echo $farmer?>,
+                    <?php echo $buyer?>
         
                 ],
                 backgroundColor: 
@@ -91,12 +91,14 @@
     
     
     var popularVeg = document.getElementById('popularVeg').getContext('2d');
-    
+     
     var popVeg = new Chart(popularVeg, {
-        
+       
         type: 'horizontalBar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea 
         data: {
             labels: ['Boulanger', 'Tomato', 'Sweet Pepper', 'Bora', 'Cabbage'],
+            // Adding Labels For Crops in Chart
+            
             datasets: [{
                 label: 'Top 5 Highest Grossing Vegetables',
                 data:
@@ -105,17 +107,24 @@
                     345,
                     347,
                     286,
-                    140
-        
+                    140,
+                    
+                    
+                   
                 ],
+                
+                
                 backgroundColor: 
                 [
                     'rgba(255,95,120,0.6)',
                     'rgba(255,159,64,0.6)',
                     'rgba(255,143,98,0.6)',
                     'rgba(255,45,56,0.6)',
-                    'rgba(255,124,67,0.6)'
+                    'rgba(255,124,67,0.6)',
+                    'rgba(255, 100, 100, 100, 100)'
                 ]
+               
+               
             }]
             
         },
@@ -125,6 +134,8 @@
         
         
     });
+    
+    
     
     
     var popularCrop = document.getElementById('popularCrop').getContext('2d');

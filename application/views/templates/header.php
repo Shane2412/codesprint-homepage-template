@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="<?= base_url();?>assets/css/styles.css" type="text/css" >
         <script type="text/javascript" src="<?= base_url();?>assets/js/Chart.min.js"></script>
         <script type="text/javascript" src="<?= base_url();?>assets/js/custom.js"></script>
+         <script type="text/javascript" src="<?= base_url();?>assets/js/moment.js"></script>
+ <script type="text/javascript" src="<?= base_url();?>assets/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="<?= base_url();?>assets/js/jquery-3.2.1.js"></script>
         
         
         <!-- CDN -->
@@ -56,6 +59,9 @@
         
       <li><a href="<?= base_url(); ?>welcome/buyers"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buyers </a></li>
        <li><a href="<?= base_url(); ?>welcome/seller"><i class="fa fa-money" aria-hidden="true"></i> Sellers </a></li> 
+      <?php if($this->session->userdata('logged_in')): ?>
+                
+            
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"> </i> Settings <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -69,6 +75,8 @@
           </ul>
         </li>
       </ul>
+      
+      <?php endif; ?>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" style="width:700px; align:center;">
@@ -76,7 +84,7 @@
         <!--<button type="submit" class="btn btn-default"> <button>-->
         
         <a class="btn btn-default" href="#">
-  <i class="fa fa-search"></i> </a>
+          <i class="fa fa-search"></i> </a>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<?= base_url();?>home"><i class="fa fa-home" aria-hidden="true"></i> Home </a></li>

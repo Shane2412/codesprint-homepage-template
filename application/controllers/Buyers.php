@@ -5,19 +5,23 @@
         function __construct()
         {
             parent::__construct();
+           
             
         }
         
         public function index()
         {
-
-
+             if(!$this->session->userdata('logged_in')){
+                redirect('Buyers/login');
+            }
+            
+            $user_id = $this->session->userdata('uid');
+            
             $buyer_data['buyers'] = $this->Buyers_model->get_Demand();
             
             $this->load->view('templates/header');
             $this->load->view('Inventory/buyers', $buyer_data);
             $this->load->view('templates/footer');
-            
         }
         
         
@@ -52,11 +56,8 @@
         
         public function login()
         {
-            $this->output->enable_profiler(TRUE);
-            
             $this->form_validation->set_rules('uname', 'uname', 'required');
             $this->form_validation->set_rules('password', 'password', 'required');
-            $this->benchmark->mark('code_start');
             if($this->form_validation->run() === FALSE)
             {
                 $this->load->view('templates/header');
@@ -78,7 +79,7 @@
                     'logged_in' => TRUE
                     );
                 $userData = $this->session->set_userdata($user_data);
-                redirect('/welcome/buyers');
+                redirect('Buyers/');
             }
             
             redirect('/');
@@ -86,11 +87,14 @@
                 
             }
              $this->benchmark->mark('code_end');
-              echo $this->benchmark->elapsed_time('code_start', 'code_end');
+             
         }
         
         public function post() 
         {
+             if(!$this->session->userdata('logged_in')){
+                redirect('Buyers/login');
+            }
             $this->output->enable_profiler(TRUE);  //Use the debug the code
             $data['crops'] = $this->Buyers_model->getCrops();
             
@@ -116,6 +120,9 @@
                 
         public function edit_Demands($oid)
         {
+             if(!$this->session->userdata('logged_in')){
+                redirect('Buyers/login');
+            }
             $data['demands'] = $this->Buyers_model->view_Demand($oid);
             $data['crops'] = $this->Buyers_model->getCrops();
             $this->load->view('templates/header');
@@ -125,6 +132,10 @@
         
         public function update_Demands()
         {
+             if(!$this->session->userdata('logged_in')){
+                redirect('Buyers/login');
+            }
+            
             if(!isset($_POST['update'])){
                     $this->load->view('templates/header');
                     $this->load->view('Buyers/edit', $data);
@@ -146,6 +157,10 @@
         
         public function delete($oid)
         {
+             if(!$this->session->userdata('logged_in')){
+                redirect('Buyers/login');
+            }
+            
             $data['delete_demands'] = $this->Buyers_model->delete_Demand($oid);
             redirect('Buyers/');
         }
