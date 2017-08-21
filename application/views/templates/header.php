@@ -9,9 +9,6 @@
         <link rel="stylesheet" href="<?= base_url();?>assets/css/styles.css" type="text/css" >
         <script type="text/javascript" src="<?= base_url();?>assets/js/Chart.min.js"></script>
         <script type="text/javascript" src="<?= base_url();?>assets/js/custom.js"></script>
-         <script type="text/javascript" src="<?= base_url();?>assets/js/moment.js"></script>
- <script type="text/javascript" src="<?= base_url();?>assets/js/bootstrap.min.js"></script>
- <script type="text/javascript" src="<?= base_url();?>assets/js/jquery-3.2.1.js"></script>
         
         
         <!-- CDN -->

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+    
+    
+    
     <h1 style="text-align:center; color:white;"> Live Infographics </h1><br>
 <div class="container">
-    <div class="row" style="background-color:white; padding:25px; opacity:0.9; border-radius:10px;">
+    <div class="row" style="background-color:white; padding:25px; border-radius:10px;">
     
     
 <div class="col-lg-6">    
@@ -43,6 +46,16 @@
         </div>
     <br>
     <canvas id="popularFruit"> </canvas>
+    </div>
+</div>
+
+<div class="col-lg-6">    
+    <div class="panel panel-default" style="padding:25px;">
+        <div class="panel-heading" style="opacity:0.7;">
+            <h2 class="animated bounceInDown"> Crops Currently in High Demands (%) </h2>
+        </div>
+    <br>
+    <canvas id="highestCropInDemand"> </canvas>
     </div>
 </div>
 
@@ -200,6 +213,94 @@
                     'rgba(64,143,98,0.6)',
                     'rgba(90,45,56,0.6)',
                     'rgba(215,124,67,0.6)'
+                ]
+            }]
+            
+        },
+        options: {},
+        
+        
+        
+        
+    });
+    
+    
+    
+    var popularVeg = document.getElementById('popularVeg').getContext('2d');
+     
+    var popVeg = new Chart(popularVeg, {
+       
+        type: 'horizontalBar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea 
+        data: {
+            labels: ['Boulanger', 'Tomato', 'Sweet Pepper', 'Bora', 'Cabbage'],
+            // Adding Labels For Crops in Chart
+            
+            datasets: [{
+                label: 'Top 5 Highest Grossing Vegetables',
+                data:
+                [
+                    450,
+                    345,
+                    347,
+                    286,
+                    140,
+                    
+                    
+                   
+                ],
+                
+                
+                backgroundColor: 
+                [
+                    'rgba(255,95,120,0.6)',
+                    'rgba(255,159,64,0.6)',
+                    'rgba(255,143,98,0.6)',
+                    'rgba(255,45,56,0.6)',
+                    'rgba(255,124,67,0.6)',
+                    'rgba(255, 100, 100, 100, 100)'
+                ]
+               
+               
+            }]
+            
+        },
+        options: {},
+        
+        
+        
+        
+    });
+    
+    
+    
+    
+    var highestCropInDemandCrop = document.getElementById('highestCropInDemand').getContext('2d');
+    
+    var highCrop = new Chart(highestCropInDemandCrop, {
+        
+        type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea 
+        data: {
+            labels: ['Rice', 'Potato', 'Pumpkin', 'Maiz', 'Tomato', 'Carrot'],
+            datasets: [{
+                label: 'Crops Currently in High Demands',
+                data:
+                [
+                    45,
+                    34,
+                    5,
+                    9,
+                    4,
+                    3
+        
+                ],
+                backgroundColor: 
+                [
+                    'rgba(213, 231, 116, 0.6)',
+                    'rgba(231, 116, 116, 0.6)',
+                    'rgba(116, 147, 231, 0.6)',
+                    'rgba(155, 45, 156, 0.6)',
+                    'rgba(235, 153, 153, 0.6)',
+                    'rgba(215, 53, 123, 0.6)'
                 ]
             }]
             

@@ -52,10 +52,10 @@
             
     </div>
     
+    <?php foreach($buyers as $buyer)?>
     
     
-    
-                      <!-- Modal for Bid -->
+     <!-- Modal for Bid -->
 <div class="modal fade" id="bid" tabindex="-1" role="dialog" aria-labelledby="bid" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -100,3 +100,7 @@
     </div>
   </div>
 </div>
+
+    
+    
+    

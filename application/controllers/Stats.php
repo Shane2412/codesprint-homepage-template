@@ -23,8 +23,7 @@ class Stats extends CI_Controller
         $this->load->view('statistics/stats_view', $data);
         $this->load->view('templates/footer');
         
-        //holy shit, it worked :0
-        //this was completely random
+        
     }
     
     

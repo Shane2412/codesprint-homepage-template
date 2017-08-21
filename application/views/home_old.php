@@ -11,6 +11,15 @@
         <p>Where demand(s) meets expectation effectively and efficiently.</p>
       </div>
       
+      
+      <!--<div class="container">-->
+        
+      <!--  <img src="/assets/images/crop.png" style="height:370px;"></img>-->
+        
+      <!--</div>-->
+      
+      
+      
       <br><br><br>
       <div>
         <p> Are you a: </p>

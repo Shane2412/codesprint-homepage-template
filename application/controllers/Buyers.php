@@ -11,9 +11,7 @@
         
         public function index()
         {
-             if(!$this->session->userdata('logged_in')){
-                redirect('Buyers/login');
-            }
+             
             
             $user_id = $this->session->userdata('uid');
             
@@ -24,77 +22,9 @@
             $this->load->view('templates/footer');
         }
         
-        
-        //Creating a Buyer
-        public function register(){
-            
-            $data['title'] = 'Sign Up';
-            
-            $this->form_validation->set_rules('fname', 'fname', 'required');
-            $this->form_validation->set_rules('lname', 'lname', 'required');
-            $this->form_validation->set_rules('uname', 'uname', 'required');
-            // $this->form_validation->set_rules('email', 'email', 'required');
-            $this->form_validation->set_rules('password', 'password', 'required');
-            $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
-            //$this->form_validation->set_rules('pin', 'pin', 'required');
-            
-            if ($this->form_validation->run() === FALSE) {
-                $this->load->view('templates/header');
-                $this->load->view('Buyers/register', $data);
-                $this->load->view('templates/footer');
-            } else {
-                //Encrypt Password to md5 hash
-                //$encryptPassword = $this->input->post('password'));
-                
-                $this->Buyers_model->register('b');
-                //set message
-                $this->session->set_flashdata('user_registered', 'You are now Registered');
-                redirect('Users/login');
-            }
-            
-        }
-        
-        public function login()
-        {
-            $this->form_validation->set_rules('uname', 'uname', 'required');
-            $this->form_validation->set_rules('password', 'password', 'required');
-            if($this->form_validation->run() === FALSE)
-            {
-                $this->load->view('templates/header');
-                $this->load->view('Buyers/login');
-                $this->load->view('templates/footer');
-            }
-            else {
-                
-            $username = $this->input->post('uname');
-            $password = $this->input->post('password');
-                
-            $user_id = $this->Buyers_model->login('b', $username, $password);
-            
-            if($user_id)
-            {
-                $user_data = array(
-                    'uid'=>$user_id,
-                    'uname' => $username,
-                    'logged_in' => TRUE
-                    );
-                $userData = $this->session->set_userdata($user_data);
-                redirect('Buyers/');
-            }
-            
-            redirect('/');
-            
-                
-            }
-             $this->benchmark->mark('code_end');
-             
-        }
-        
         public function post() 
         {
-             if(!$this->session->userdata('logged_in')){
-                redirect('Buyers/login');
-            }
+             
             $this->output->enable_profiler(TRUE);  //Use the debug the code
             $data['crops'] = $this->Buyers_model->getCrops();
             
@@ -120,9 +50,7 @@
                 
         public function edit_Demands($oid)
         {
-             if(!$this->session->userdata('logged_in')){
-                redirect('Buyers/login');
-            }
+             
             $data['demands'] = $this->Buyers_model->view_Demand($oid);
             $data['crops'] = $this->Buyers_model->getCrops();
             $this->load->view('templates/header');
@@ -132,9 +60,7 @@
         
         public function update_Demands()
         {
-             if(!$this->session->userdata('logged_in')){
-                redirect('Buyers/login');
-            }
+             
             
             if(!isset($_POST['update'])){
                     $this->load->view('templates/header');
@@ -157,12 +83,21 @@
         
         public function delete($oid)
         {
-             if(!$this->session->userdata('logged_in')){
-                redirect('Buyers/login');
-            }
+             
             
             $data['delete_demands'] = $this->Buyers_model->delete_Demand($oid);
             redirect('Buyers/');
         }
+        
+        public function logout()
+		{
+			//unset session data
+			$this->session->unset_userdata('logged_in');
+			$this->session->unset_userdata('uid');
+			$this->session->unset_userdata('uname');
+			$this->session->sess_destroy();
+			$this->session->set_flashdata('logout', 'You have logged out');
+					redirect('/');
+		}
     
 }

@@ -7,7 +7,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('Buyers/login'); ?>
+<?php echo form_open('buy/login'); ?>
 
 <div class="col-lg-4 col-lg-offset-4">
     

@@ -7,14 +7,14 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('Farmers/login'); ?>
+<?php echo form_open('farmers/login'); ?>
 
 <div class="col-lg-4 col-lg-offset-4">
     
     <div class="panel panel-custom animated pulse" style="padding:25px 20px 80px 20px; opacity:0.9;">
             
             <div class="panel-heading">
-                <h1 class="animated bounceInDown" style="color:white; text-align:center;"> Log in as Buyer </h1>
+                <h1 class="animated bounceInDown" style="color:white; text-align:center;"> Log in as a Farmer </h1>
             </div>
 
 

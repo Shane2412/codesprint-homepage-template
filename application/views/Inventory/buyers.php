@@ -79,6 +79,10 @@
                 <h4> How much units of <?= $buyer->crop_type;?> can you fulfill? </h4>
                 <input class="form-control" type="number" name=""/>
             </div>
+             <div class="form-group">
+                <h4> What Cost Can You Produce <?= $buyer->crop_type;?> for? </h4>
+                <input class="form-control" type="number" name=""/>
+            </div>
             </div>
             
             
