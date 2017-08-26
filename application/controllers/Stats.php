@@ -26,7 +26,6 @@ class Stats extends CI_Controller
         
     }
     
-    
 }
 
 

@@ -11,7 +11,7 @@
         public function login()
         {
             if(isset($_POST['login'])){
-                $this->load->view('Admin/Templates/Header');
+                $this->load->view('Admin/Templates/header');
                 $this->load->view('Admin/login');
                 $this->load->view('Admin/Templates/footer');
             }
@@ -172,7 +172,7 @@
         public function delete_Demand($oid)
         {
             $data = $this->Admin_model->delete_Demand($oid);
-            redirect('Admin/Buyers/')
+            redirect('Admin/Buyers/');
         }
         
         //Create crops
@@ -195,7 +195,7 @@
                     );
                     
                 if($this->Admin_model->createCrops($data)){
-                    redirect('Admin/Farmers/')
+                    redirect('Admin/Farmers/');
                 }
             }
         }
@@ -220,6 +220,6 @@
         public function Delete_Crops($cid)
         {
            $data = $this->Admin_model->delete_Crops($oid);
-           redirect('Admin/Farmers/')
+           redirect('Admin/Farmers/');
         }
     }

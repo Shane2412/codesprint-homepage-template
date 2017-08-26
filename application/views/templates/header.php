@@ -9,7 +9,11 @@
         <link rel="stylesheet" href="<?= base_url();?>assets/css/styles.css" type="text/css" >
         <script type="text/javascript" src="<?= base_url();?>assets/js/Chart.min.js"></script>
         <script type="text/javascript" src="<?= base_url();?>assets/js/custom.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="<?= base_url();?>assets/js/bootstrap.min.js"></script>
         
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">-->
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>-->
         
         <!-- CDN -->
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
@@ -54,21 +58,23 @@
       <ul class="nav navbar-nav navbar-right">
         
         
+            
+         
       <li><a href="<?= base_url(); ?>welcome/buyers"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buyers </a></li>
        <li><a href="<?= base_url(); ?>welcome/seller"><i class="fa fa-money" aria-hidden="true"></i> Sellers </a></li> 
       <?php if($this->session->userdata('logged_in')): ?>
                 
-            
+        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"> </i> Settings <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
+            <li><a href="#"><?= $this->session->userdata('uname');?></a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">Logout</a></li>
           </ul>
         </li>
       </ul>

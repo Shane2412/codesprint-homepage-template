@@ -5,15 +5,15 @@
         function __construct()
         {
             parent::__construct();
-           
+            if (!$this->session->userdata('logged_in')) {
+				$this->session->set_flashdata('noaccess', 'You need to be logged in to view this');
+				redirect('farmers/login');
+			}
         }
         
         public function index()
         {
-            if(!$this->session->userdata('logged_in'))
-            {
-                redirect('/');
-            }
+            $user_id = $this->session->userdata('uid');
             $data['farmers'] = $this->Sellers_model->get();
             $this->load->view('templates/header');
             $this->load->view('Farmers/index', $data);
@@ -27,10 +27,8 @@
         
         public function create()
         {
-            if(!$this->session->userdata('logged_in'))
-            {
-                redirect('/');
-            }
+            
+			
             if(!isset($_POST['submit']))
             {
                 $this->load->view('templates/header');
@@ -39,20 +37,27 @@
             }
             else 
             {
+                $user_id = array(
+                   'user_crop_id' => $this->session->userdata('uid')
+                    );
+                
+                
                 // name, price, crop_max_count, produce_date, estimate_date, quantity = database 
                 $data = array(
+                    
                     'name'=> $this->input->post('name'),
                     'price' => $this->input->post('price'),
                     'crop_max_count' => $this->input->post('crop_max_count'),
                     'produce_date' => date('Y-m-d', strtotime($this->input->post('produce_date'))),
                     'estimate_date' => date('Y-m-d', strtotime($this->input->post('estimate_date'))),
                     'quality' => $this->input->post('quality'),
-                    'quantity' => $this->input->post('quantity')
+                    'quantity' => $this->input->post('quantity'),
+                    'uid' => $this->session->userdata('uid')
                     );
                 
-                if($this->Sellers_model->create_crop($data))
+                if($this->Sellers_model->create_crop($data, $user_id))
                     {
-                        redirect('/');
+                        redirect('Farmers/');
                     }
             }
             
@@ -60,10 +65,6 @@
         
         public function delete_crop($cid)
         {
-            if(!$this->session->userdata('logged_in'))
-            {
-                redirect('/');
-            }
             $data['delete_crops'] = $this->Sellers_model->delete_crop($cid);
             redirect('Farmers/');
         }
@@ -82,10 +83,6 @@
         
         public function update_crop()
         {
-             if(!$this->session->userdata('logged_in'))
-            {
-                redirect('/');
-            }
              if(!isset($_POST['update'])){
                     $this->load->view('templates/header');
                     $this->load->view('Farmers/edit', $data);
@@ -110,10 +107,6 @@
         
         public function view($cid)
         {
-             if(!$this->session->userdata('logged_in'))
-            {
-                redirect('/');
-            }
             $data['views'] = $this->Sellers_model->view_crop($cid);
             $this->load->view('templates/header');
             $this->load->view('Farmers/view', $data);

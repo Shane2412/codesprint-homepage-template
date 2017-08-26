@@ -34,17 +34,17 @@
      <br>
      </div>
      
-     <!--<div class="col-lg-3">-->
-     <!--<h4> Unit: </h4>-->
-     <!--  <select class="form-control" type="text" name="unit" placeholder="Unit">-->
-     <!--  <option> Unit </option>-->
-     <!--  <option> Ounce (Oz) </option>-->
-     <!--  <option> Pound (Lb)  </option>-->
-     <!--  <option> Kilogram (Kg) </option>-->
-     <!--  <option> Ton </option>-->
-     <!--  </select>-->
-     <!--<br>-->
-     <!--</div>-->
+     <div class="col-lg-3">
+     <h4> Unit: </h4>
+       <select class="form-control" type="text" name="unit" placeholder="Unit">
+       <option> Unit </option>
+       <option> Ounce (Oz) </option>
+       <option> Pound (Lb)  </option>
+       <option> Kilogram (Kg) </option>
+       <option> Ton </option>
+       </select>
+     <br>
+     </div>
     </div>
     
      <h4> Start Date: </h4>

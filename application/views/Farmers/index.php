@@ -10,7 +10,7 @@
                         
                     <div class="panel-heading" style="border-radius:15px;"> <h1 style="color:white; text-align:center;" ><?= $farmer->name;?></h1></div>
                         <hr class="my-4">
-                  <h5>By Nick</h5>
+                  <h5>By <?= $farmer->user_crop_id;?></h5>
                   <div class="panel-body">
                   <div class="jumbotron">
                         <p class="lead"><strong>I need  lb of  within </strong> </p>  <br>

@@ -5,18 +5,20 @@
       <div class="jumbotron" style="background-color:white;">
       
       <h3 style> Welcome To: </h3>
-      <h1 style="color:rgba(167,14,51,0.7)"> Farmer's Paradise </h1>
+      
+      <div class="container-fluid">
+        <div class="panel panel-custom" style="background-color:rgb(167,14,51); padding:25px; background-image:url('/assets/images/cherryBG.png');">
+      <h1 style="color:white;"> Farmer's Paradise </h1>
       
       <div>
-        <p>Where demand(s) meets expectation effectively and efficiently.</p>
+        <p style="color:white;">Where demand(s) meets expectation effectively and efficiently.</p>
+        </div>
+        
+          
+      
       </div>
       
-      
-      <!--<div class="container">-->
-        
-      <!--  <img src="/assets/images/crop.png" style="height:370px;"></img>-->
-        
-      <!--</div>-->
+     </div>
       
       
       
@@ -29,6 +31,8 @@
       <div class="jumbotron">
         
         <div class="container">
+          
+          
           
         
       <div class="col-lg-5" align="center">

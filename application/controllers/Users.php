@@ -68,7 +68,7 @@
                 
             $username = $this->input->post('uname');
             $password = $this->input->post('password');
-                
+            $status;    
             $user_id = $this->Buyers_model->login('b', $username, $password);
             
             if($user_id)
@@ -76,6 +76,7 @@
                 $user_data = array(
                     'uid'=>$user_id,
                     'uname' => $username,
+                    'b' => $status,
                     'logged_in' => TRUE
                     );
                 $userData = $this->session->set_userdata($user_data);
@@ -105,7 +106,7 @@
                 
             $username = $this->input->post('uname');
             $password = $this->input->post('password');
-                
+            // $status;    
             $user_id = $this->Sellers_model->login('f', $username, $password);
             
             if($user_id)
@@ -113,10 +114,11 @@
                 $user_data = array(
                     'uid'=>$user_id,
                     'uname' => $username,
+                    'f' => $status,
                     'logged_in' => TRUE
                     );
                 $userData = $this->session->set_userdata($user_data);
-                redirect('/welcome/buyers');
+                redirect('Farmers/create');
             }
             
             redirect('/');

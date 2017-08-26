@@ -45,10 +45,12 @@
               return $query->result();
         }
         
-        public function create_crop($data)
+        public function create_crop($data, $uid)
         {
-            $this->db->insert('crop', $data);
-            return $this->db->insert_id();
+           $uid = $this->db->where('uid', $uid);    
+           $query = $this->db->insert('crop', $data,$uid);
+            // return $this->db->insert_id();
+            return $query;
         }
         
         public function view_crop($cid = FALSE)

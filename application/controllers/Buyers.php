@@ -5,8 +5,10 @@
         function __construct()
         {
             parent::__construct();
-           
-            
+            if (!$this->session->userdata('logged_in', 'b', 'a')) {
+				$this->session->set_flashdata('noaccess', 'You need to be logged in to view this');
+				redirect('buy/login');
+			}
         }
         
         public function index()
@@ -14,9 +16,7 @@
              
             
             $user_id = $this->session->userdata('uid');
-            
             $buyer_data['buyers'] = $this->Buyers_model->get_Demand();
-            
             $this->load->view('templates/header');
             $this->load->view('Inventory/buyers', $buyer_data);
             $this->load->view('templates/footer');
@@ -38,6 +38,7 @@
                 {
                     $data = array(
                     //order_quantity, crop_type, start_date_of_order, end_date_of_order
+                        'user_id' => $this->session->userdata('uid'),
                         'crop_type' => $this->input->post('crop_type'),
                         'order_quantity' => $this->input->post('order_quantity'),
                         'start_date_of_order' => date('Y-m-d', strtotime($this->input->post('start_date_of_order'))),
@@ -71,6 +72,7 @@
                 {
                     $data = array(
                     //order_quantity, crop_type, start_date_of_order, end_date_of_order
+                        
                         'crop_type' => $this->input->post('crop_type'),
                         'order_quantity' => $this->input->post('order_quantity'),
                         'start_date_of_order' => date('Y-m-d', strtotime($this->input->post('start_date_of_order'))),
@@ -99,5 +101,10 @@
 			$this->session->set_flashdata('logout', 'You have logged out');
 					redirect('/');
 		}
-    
+
+
+    public function reggister()
+    {
+        
+    }    
 }

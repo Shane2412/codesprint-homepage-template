@@ -19,11 +19,11 @@ class Crops_model extends CI_Model{
     {    
         $data = array(
             'name' => $this->input->post('name'),
-            'price' => $this->input->post('price')
+            'price' => $this->input->post('price'),
             'quality' => $this->input->post('quality'),
-            'crop_max_count' => $this->input->post('crop_max_count')
+            'crop_max_count' => $this->input->post('crop_max_count'),
             'produce_date' => $this->input->post('produce_date'),
-            'estimate_date' => $this->input->post('estimate_date')
+            'estimate_date' => $this->input->post('estimate_date'),
             'quantity' => $this->input->post('quantity')
         );
         return $this->db->insert('crop', $data);
@@ -32,11 +32,11 @@ class Crops_model extends CI_Model{
     {
         $data=array(
             'name' => $this->input->post('name'),
-            'price' => $this->input->post('price')
+            'price' => $this->input->post('price'),
             'quality' => $this->input->post('quality'),
-            'crop_max_count' => $this->input->post('crop_max_count')
+            'crop_max_count' => $this->input->post('crop_max_count'),
             'produce_date' => $this->input->post('produce_date'),
-            'estimate_date' => $this->input->post('estimate_date')
+            'estimate_date' => $this->input->post('estimate_date'),
             'quantity' => $this->input->post('quantity')
         );
         if($id==0){
